@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using HelloApp;
+//https://metanit.com/sharp/efcore/2.16.php
 using (ApplicationContext db = new ApplicationContext())
 {
     //await db.Database.EnsureDeletedAsync();
