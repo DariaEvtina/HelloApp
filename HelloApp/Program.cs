@@ -2,9 +2,13 @@
 using HelloApp;
 using (ApplicationContext db = new ApplicationContext())
 {
+    //await db.Database.EnsureDeletedAsync();
     bool isCreated = db.Database.EnsureCreated();
     if (isCreated) Console.WriteLine("Data Base is created");
     else Console.WriteLine("Data base was already created");
+    bool isAvalaible = db.Database.CanConnect();
+    if (isAvalaible) Console.WriteLine("Data base is avalible");
+    else Console.WriteLine("data base is not avalible");
 }
 using (helloappContext db = new helloappContext())
 {
