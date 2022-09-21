@@ -11,5 +11,6 @@ namespace HelloApp
         public long Id { get; set; }
         public string? Name { get; set; }
         public long Age { get; set; }
+        public string? Position { get; set; }   // Новое свойство - должность пользователя
     }
 }
