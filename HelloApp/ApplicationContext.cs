@@ -15,7 +15,8 @@ namespace HelloApp
         public DbSet<User> Users { get; set; } = null!;
         public ApplicationContext()
         {
-            Database.EnsureCreated();
+            Database.EnsureDeleted();   // удаляем бд со старой схемой
+            Database.EnsureCreated();   // создаем бд с новой схемой
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

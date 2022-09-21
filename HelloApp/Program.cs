@@ -107,6 +107,13 @@ using (ApplicationContext db = new ApplicationContext(options))
 }*/
 using (ApplicationContext db = new ApplicationContext())
 {
+    User tom = new User { Name = "Tom", Age = 33 };
+    User alice = new User { Name = "Alice", Age = 26 };
+
+    // Добавление
+    db.Users.Add(tom);
+    db.Users.Add(alice);
+    db.SaveChanges();
     var users = db.Users.ToList();
     Console.WriteLine("Users list:");
     foreach (User u in users)
