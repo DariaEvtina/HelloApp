@@ -10,7 +10,7 @@ namespace HelloApp
 
     public class ApplicationContext : DbContext
     {
-        readonly StreamWriter logStream = new StreamWriter("mylog.txt", true);
+        readonly StreamWriter logStream = new StreamWriter(@"..\..\mylog.txt", true);
         public DbSet<User> Users { get; set; } = null!;
         public ApplicationContext()
         {
