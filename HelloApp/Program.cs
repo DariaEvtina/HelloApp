@@ -111,9 +111,7 @@ using (ApplicationContext db = new ApplicationContext())
     User alice = new User { Name = "Alice", Age = 26 };
 
     // Добавление
-    db.Users.Add(tom);
-    db.Users.Add(alice);
-    db.SaveChanges();
+    await db.Database.MigrateAsync(); // асинхронный метод для миграции
     var users = db.Users.ToList();
     Console.WriteLine("Users list:");
     foreach (User u in users)

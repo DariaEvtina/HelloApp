@@ -4,7 +4,7 @@
 
 namespace HelloApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class IsMarriedToUserAdded : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,10 +12,11 @@ namespace HelloApp.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
-                    Age = table.Column<int>(type: "INTEGER", nullable: false)
+                    Age = table.Column<long>(type: "INTEGER", nullable: false),
+                    IsMarried = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
