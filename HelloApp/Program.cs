@@ -85,7 +85,7 @@ using (helloappContext db = new helloappContext())
     {
         Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}");
     }
-}*/
+}
 var builder = new ConfigurationBuilder();
 // установка пути к текущему каталогу
 builder.SetBasePath(Directory.GetCurrentDirectory());
@@ -104,5 +104,21 @@ using (ApplicationContext db = new ApplicationContext(options))
     var users = db.Users.ToList();
     foreach (User user in users)
         Console.WriteLine($"{user.Id}.{user.Name} - {user.Age}");
+}*/
+using (ApplicationContext db = new ApplicationContext())
+{
+    User user1 = new User { Name = "Tom", Age = 33 };
+    User user2 = new User { Name = "Alice", Age = 26 };
+
+    db.Users.Add(user1);
+    db.Users.Add(user2);
+    db.SaveChanges();
+
+    var users = db.Users.ToList();
+    Console.WriteLine("User ListA:");
+    foreach (User u in users)
+    {
+        Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}");
+    }
 }
 

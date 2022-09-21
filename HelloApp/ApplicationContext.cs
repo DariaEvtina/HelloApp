@@ -10,12 +10,29 @@ namespace HelloApp
 
     public class ApplicationContext : DbContext
     {
+        readonly StreamWriter logStream = new StreamWriter("mylog.txt", true);
         public DbSet<User> Users { get; set; } = null!;
-        public ApplicationContext(DbContextOptions<ApplicationContext> options)
-                : base(options)
+        public ApplicationContext()
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=helloapp.db");
+            optionsBuilder.LogTo(logStream.WriteLine);
+        }
+        public override void Dispose()
+        {
+            base.Dispose();
+            logStream.Dispose();
+        }
+
+        public override async ValueTask DisposeAsync()
+        {
+            await base.DisposeAsync();
+            await logStream.DisposeAsync();
+        }
     }
 }
