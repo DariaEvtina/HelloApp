@@ -7,11 +7,23 @@ using System.Threading.Tasks;
 
 namespace HelloApp
 {
-    public  class User
+    public class User
     {
-        [Column("user_id")]
         public int Id { get; set; }
         public string? Name { get; set; }
         public int Age { get; set; }
+        // навигационное свойство
+        public Company? Company { get; set; }
+    }
+
+    public class Company
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
+    }
+    public class Country
+    {
+        public int Id { get; set; }
+        public string? Name { get; set; }
     }
 }

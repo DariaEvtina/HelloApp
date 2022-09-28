@@ -19,10 +19,5 @@ namespace HelloApp
         {
             optionsBuilder.UseSqlite("Data Source=helloapp.db");
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // использование Fluent API
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }
