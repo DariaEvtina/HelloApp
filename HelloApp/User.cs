@@ -9,11 +9,15 @@ namespace HelloApp
 {
     public class User
     {
+        string name;
+
         public int Id { get; set; }
-        public string? Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
         public int Age { get; set; }
-        [NotMapped]
-        public string? Address { get; set; }
     }
 
 }
