@@ -12,18 +12,8 @@ namespace HelloApp
         public int Id { get; set; }
         public string? Name { get; set; }
         public int Age { get; set; }
-        // навигационное свойство
-        public Company? Company { get; set; }
+        [NotMapped]
+        public string? Address { get; set; }
     }
-    [NotMapped]
-    public class Company
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
-    public class Country
-    {
-        public int Id { get; set; }
-        public string? Name { get; set; }
-    }
+
 }

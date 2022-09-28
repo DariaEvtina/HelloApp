@@ -21,7 +21,8 @@ namespace HelloApp
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Country>();
+            modelBuilder.Entity<User>().Ignore(u => u.Address);
         }
     }
+
 }
