@@ -10,7 +10,6 @@ namespace HelloApp
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
-
         public ApplicationContext()
         {
             Database.EnsureDeleted();
@@ -18,7 +17,12 @@ namespace HelloApp
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=usersdb;Username=postgres;Password=postgres");
+            optionsBuilder.UseSqlite("Data Source=helloapp.db");
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // использование Fluent API
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
