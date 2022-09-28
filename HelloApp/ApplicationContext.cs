@@ -21,9 +21,7 @@ namespace HelloApp
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().Property("Id").HasField("id");
-            modelBuilder.Entity<User>().Property("Age").HasField("age");
-            modelBuilder.Entity<User>().Property("name");
+            modelBuilder.Entity<User>().Property(u => u.Id).HasColumnName("user_id");
         }
     }
 
