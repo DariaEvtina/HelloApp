@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace HelloApp
 {
+    using System.ComponentModel.DataAnnotations;
+
     public class User
     {
-        [Column("user_id")]
         public int Id { get; set; }
+        [Required]
         public string? Name { get; set; }
     }
 }

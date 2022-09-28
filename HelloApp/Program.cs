@@ -6,15 +6,7 @@ using Microsoft.Extensions.Configuration;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using (ApplicationContext db = new ApplicationContext())
 {
-    User bob = new User("Bob", 30);
-    User kate = new User("Kate", 29);
-    db.Users.Add(bob);
-    db.Users.Add(kate);
+    User tom = new User();
+    db.Users.Add(tom); // ! ошибка Microsoft.EntityFrameworkCore.DbUpdateException
     db.SaveChanges();
-
-    var users = db.Users.ToList();
-    foreach (User user in users)
-    {
-        user.Print();
-    }
 }

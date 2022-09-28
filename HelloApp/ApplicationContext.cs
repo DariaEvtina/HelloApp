@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace HelloApp
 {
+    using Microsoft.EntityFrameworkCore;
+
     public class ApplicationContext : DbContext
     {
         public DbSet<User> Users { get; set; } = null!;
@@ -21,7 +23,7 @@ namespace HelloApp
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().Property(u => u.Id).HasColumnName("user_id");
+            modelBuilder.Entity<User>().Property(b => b.Name).IsRequired();
         }
     }
 
