@@ -9,19 +9,18 @@ namespace HelloApp
 {
     public class User
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Age { get; set; }
-        public User(string name)
-        {
-            Name = name;
-            Age = 18;
-        }
+        int id;
+        string name;
+        int age;
+        public int Id => id;
+        public int Age => age;
         public User(string name, int age)
         {
-            Name = name;
-            Age = age;
+            this.name = name;
+            this.age = age;
         }
+
+        public void Print() => Console.WriteLine($"{id}. {name} - {age}");
 
     }
 }
