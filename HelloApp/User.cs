@@ -11,8 +11,8 @@ namespace HelloApp
 
     public class User
     {
-        public int Id { get; set; }
-        [Required]
+        [Key]
+        public int Ident { get; set; }
         public string? Name { get; set; }
     }
 }
