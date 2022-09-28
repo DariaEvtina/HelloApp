@@ -9,15 +9,16 @@ namespace HelloApp
 {
     public class User
     {
-        string name;
-
         public int Id { get; set; }
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get; set; }
         public int Age { get; set; }
+
+        public User(string name, int age)
+        {
+            Name = name;
+            Age = age;
+            Console.WriteLine($"quering obj {name}");
+        }
     }
 
 }
